@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 这是xml文件的开头-->
+    <!--    beans
+            这是根元素，标识一个 Spring Bean 定义文件。所有 Bean 的定义都应嵌套在此元素内。该元素还可以包含属性来配置 Bean 的上下文，例如默认的作用域。-->
+    <!--    xmlns
+            全名是xml namespace。这是 XML 命名空间的声明。
+            因为xml的标签可自定义，需要命名空间来区分。假如这两个 XML 文档被一起使用，由于两个文档都包含有定义相同的的  元素，就会发生命名冲突。XML 解析器是无法确定如何处理这类冲突。为了解决上述问题，xmlns就产生了。
+            用于标识 XML 文档中元素和属性的唯一性。在 Spring 框架中，命名空间通常指向特定的 URL，这些 URL 显示了 XML 文档中使用的元素和属性的来源。
+            此例中 定义了 Spring Beans 命名空间。这意味着在该命名空间下的元素（如 <bean>、<property> 等）都是由 Spring 框架提供的，并具有特定的含义和用法。
+            命名空间的作用包括：
+                避免冲突：不同的 XML 规范可以使用相同的元素名称，但由于它们在不同的命名空间中，这不会导致冲突。
+                明确语义：通过命名空间，可以清楚地知道某个元素或属性来自哪个规范或库，这有助于理解和维护 XML 文件。
+                支持验证：结合 xsi:schemaLocation，命名空间能够帮助 XML 解析器验证文档的结构和内容是否符合预定义的模式（XSD）。
+            -->
+    <!--    xmlns:xsi
+            xsi 是 XML Schema Instance 的缩写，提供了一些与 XML 模式相关的功能。通常，它会与 xsi:schemaLocation 一起使用，以指示 XML 文档应遵循的模式文件的位置。-->
+    <!--    xsi:schemaLocation
+            是利用xsi命名空间中的功能，告诉 XML 解析器如何找到和使用相应的模式文件来验证文档的结构和内容。
+            用于指定 XML 文档所使用的 XML Schema 的位置。它的值通常是一个或多个命名空间和模式文件的 URI 组合。
+            前面部分就是命名空间的名字(xmlns 中定义的命名空间)，后面是xsd（xmlschema）的地址。
+            也是就表示把定义这个命名空间的schema文件给引用进来，好让eclipse这类型工具能够解析和验证你的xml文件是否符合语法规范。等同于。用于声明了目标命名空间的模式文档。-->
+    <!--完成user对象创建
+        bean标签
+            id属性：唯一标识
+            class属性：要创建对象所在类的全路径（包名称+类名称）
+    -->
+    <!--    总结
+            这些标签的功能主要集中在区分和验证上：
+            区分功能：
+            xmlns 声明的命名空间用于标识和区分不同的元素和属性，避免名称冲突，使文档能够清晰地表明各个元素的来源和用途。
+            验证功能：
+            xsi 命名空间及其属性（如 xsi:schemaLocation）提供了与 XML Schema 相关的功能，允许 XML 解析器使用指定的模式文件来验证文档的结构和内容是否符合标准。
+            结合起来，这些标签确保 XML 文档的正确性和一致性，增强了其可维护性和可扩展性。-->
+    <!--    参考博客： (关于XML文档的xmlns、xmlns:xsi和xsi:schemaLocation)[https://blog.csdn.net/u010160778/article/details/59483208]
+        (以Spring Bean配置文件为例解释 xmlns，xmlns:xsi，xsi:schemaLocation)[https://www.cnblogs.com/macho8080/p/11255183.html]-->
+    <bean id="user" class="com.atguigu.spring6.User"></bean>
+</beans>
