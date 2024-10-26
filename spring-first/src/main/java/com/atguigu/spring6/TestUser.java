@@ -13,6 +13,7 @@ public class TestUser {
 
     @Test
     public void testUserObject() {
+        //使用main方法启动spring程序（重要）
         //加载spring配置文件，对象创建
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("bean.xml");

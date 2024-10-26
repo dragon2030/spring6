@@ -6,7 +6,7 @@ public class User {
 
     private Person person;
 
-    //无参数构造
+    //无参数构造 用于测试spring通过反射调用了bean的无参构造器
     public User() {
         System.out.println("0: 无参数构造执行了..");
     }
