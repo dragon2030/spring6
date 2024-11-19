@@ -16,7 +16,7 @@ public class Emp {
     private String[] loves;
 
     public void work() {
-        System.out.println(ename+"emp work....."+age);
+        System.out.println(ename+" emp work....."+age);
         dept.info();
         System.out.println(Arrays.toString(loves));
     }

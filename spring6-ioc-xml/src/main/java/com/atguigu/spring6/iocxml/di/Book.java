@@ -53,6 +53,7 @@ public class Book {
     }
 
     public static void main(String[] args) {
+        //原生的方法进行注入 不通过spring注入属性时的方式
         //set方法注入
         Book book = new Book();
         book.setBname("java");

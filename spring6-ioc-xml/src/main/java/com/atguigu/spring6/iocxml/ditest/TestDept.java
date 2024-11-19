@@ -11,5 +11,8 @@ public class TestDept {
         //员工对象
         Dept dept = context.getBean("dept", Dept.class);
         dept.info();
+        //部门名称：技术部
+        //lucy
+        //mary
     }
 }

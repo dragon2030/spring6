@@ -490,13 +490,30 @@ public class HelloWorldTest {
 
 
 
+> 遗留问题：
+>
+> 日志框架如何创建 具体得看源码学习 日志这块源码不亚于spring慢慢拿时间看
+>
+> 以及使用的详述
+
 ## 3、容器：IoC
 
 IoC 是 Inversion of Control 的简写，译为“控制反转”，它不是一门技术，而是一种设计思想，是一个重要的面向对象编程法则，能够指导我们如何设计出松耦合、更优良的程序。
 
-Spring 通过 IoC 容器来管理所有 Java 对象的实例化和初始化，控制对象与对象之间的依赖关系。我们将由 IoC 容器管理的 Java 对象称为 Spring Bean，它与使用关键字 new 创建的 Java 对象没有任何区别。
+Spring 通过 IoC 容器来**管理所有 Java 对象的实例化和初始化，控制对象与对象之间的依赖关系**。我们将由 IoC 容器管理的 Java 对象称为 Spring Bean，它与使用关键字 new 创建的 Java 对象没有任何区别。
+
+>与使用关键字 new 创建的 Java 对象没有任何区别,只是spring中为了区分他，用了bean
 
 IoC 容器是 Spring 框架中最重要的核心组件之一，它贯穿了 Spring 从诞生到成长的整个过程。
+
+![image-20241028212244885](images\note_image\image-20241028212244885.png)
+
+>1、首先在配置文件或注解中定义bean的相关信息
+>2、通过BeanDedinitionReader进行加载，会针对不同方式进行读取
+>3、在其过程中会有bean的定义信息，其信息可以被修改
+>4、谁spring中通过BeanFactory工厂+反射进行实例化
+>5、实例化后进行初始化
+>6、最后拿到最终的对象，可以通过context.getBean拿到对象
 
 ### 3.1、IoC容器
 
@@ -504,10 +521,10 @@ IoC 容器是 Spring 框架中最重要的核心组件之一，它贯穿了 Spri
 
 - 控制反转是一种思想。
 - 控制反转是为了降低程序耦合度，提高程序扩展力。
-- 控制反转，反转的是什么？
+- **控制反转，反转的是什么？**
 
-- - 将对象的创建权利交出去，交给第三方容器负责。
-  - 将对象和对象之间关系的维护权交出去，交给第三方容器负责。
+- - **将对象的创建权利交出去，交给第三方容器负责。**
+  - **将对象和对象之间关系的维护权交出去，交给第三方容器负责。**
 
 - 控制反转这种思想如何实现呢？
 
@@ -516,6 +533,8 @@ IoC 容器是 Spring 框架中最重要的核心组件之一，它贯穿了 Spri
 #### 3.1.2、依赖注入
 
 DI（Dependency Injection）：依赖注入，依赖注入实现了控制反转的思想。
+
+> 是思想的实现
 
 **依赖注入：**
 
@@ -701,6 +720,7 @@ public void testHelloWorld2(){
 
 java中，instanceof运算符用于判断前面的对象是否是后面的类，或其子类、实现类的实例。如果是返回true，否则返回false。也就是说：用instanceof关键字做判断时， instanceof 操作符的左右操作必须有继承或实现关系
 
+![依赖注入两种方式](images/画图/04-依赖注入两种方式.png)
 
 #### 3.2.3、实验二：依赖注入之setter注入
 
@@ -844,6 +864,8 @@ public void testDIByConstructor(){
 
 #### 3.2.5、实验四：特殊值处理
 
+> 依赖注入过程当中一些特殊值的处理
+
 ##### ①字面量赋值
 
 > 什么是字面量？
@@ -867,6 +889,8 @@ public void testDIByConstructor(){
 </property>
 ```
 
+> 此为控制的注入方式
+>
 > 注意：
 >
 > ```xml
@@ -883,6 +907,8 @@ public void testDIByConstructor(){
 <property name="expression" value="a &lt; b"/>
 ```
 
+> **XML实体（Entity）**‌是一种在XML文档中声明的命名引用，用于代替特定的内容或标记。这种机制可以帮助避免重复代码，提高文档的可读性和维护性‌
+
 ##### ④CDATA节
 
 ```xml
@@ -895,9 +921,11 @@ public void testDIByConstructor(){
 </property>
 ```
 
-
+> 通过c-data区（c-data节）表示里面可以包含特殊符号，这是xml中的一种特有的写法
 
 #### 3.2.6、实验五：为对象类型属性赋值
+
+> 特殊类型属性（对象类型如map、实体等）的注入，在十几种会更常用
 
 **①创建班级类Clazz**
 
@@ -1114,6 +1142,10 @@ public void setStudents(List<Student> students) {
 > 若为Set集合类型属性赋值，只需要将其中的list标签改为set标签即可
 
 ##### ②为Map集合类型属性赋值
+
+> ```
+> <!--<value>"如果是普通值"</value>-->
+> ```
 
 创建教师类Teacher：
 

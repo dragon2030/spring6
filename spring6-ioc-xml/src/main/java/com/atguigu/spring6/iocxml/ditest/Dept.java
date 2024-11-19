@@ -1,5 +1,7 @@
 package com.atguigu.spring6.iocxml.ditest;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 //部门类
@@ -27,6 +29,10 @@ public class Dept {
 
     public void info() {
         System.out.println("部门名称："+dname);
+        if(empList==null || empList.size()==0){
+            System.out.println("部门没有员工");
+            return;
+        }
         for (Emp emp:empList) {
             System.out.println(emp.getEname());
         }

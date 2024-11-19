@@ -31,13 +31,9 @@
                         <value>10010</value>
                     </key>
                     <ref bean="teacherone"></ref>
+                    <!--<value>"如果是普通值"</value>-->
                 </entry>
-                <entry>
-                    <key>
-                        <value>10086</value>
-                    </key>
-                    <ref bean="teachertwo"></ref>
-                </entry>
+                <entry value-ref ="teachertwo" key="10086"></entry >
             </map>
         </property>
     </bean>
