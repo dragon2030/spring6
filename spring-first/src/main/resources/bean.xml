@@ -18,10 +18,15 @@
     <!--    xmlns:xsi
             xsi 是 XML Schema Instance 的缩写，提供了一些与 XML 模式相关的功能。通常，它会与 xsi:schemaLocation 一起使用，以指示 XML 文档应遵循的模式文件的位置。-->
     <!--    xsi:schemaLocation
-            是利用xsi命名空间中的功能，告诉 XML 解析器如何找到和使用相应的模式文件来验证文档的结构和内容。
+            xsi:schemaLocation 用来指定 XML 验证时所需的命名空间和对应的 XSD 文件（XML Schema）通过它，Spring 能够验证 XML 配置文件的正确性。
             用于指定 XML 文档所使用的 XML Schema 的位置。它的值通常是一个或多个命名空间和模式文件的 URI 组合。
             前面部分就是命名空间的名字(xmlns 中定义的命名空间)，后面是xsd（xmlschema）的地址。
-            也是就表示把定义这个命名空间的schema文件给引用进来，好让eclipse这类型工具能够解析和验证你的xml文件是否符合语法规范。等同于。用于声明了目标命名空间的模式文档。-->
+            也是就表示把定义这个命名空间的schema文件给引用进来，好让eclipse这类型工具能够解析和验证你的xml文件是否符合语法规范。等同于。用于声明了目标命名空间的模式文档。
+
+            特殊的：xsi:schemaLocation 中并不需要为所有 xmlns 声明的命名空间都提供对应的 XSD 文件，如：
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 是一个标准的 XML Schema 定义 (XSD) 命名空间，由 W3C 提供，属于 XML 的基础功能。
+                xmlns:p="http://www.springframework.org/schema/p" 是 Spring 提供的命名空间，用来简化 bean 属性配置。
+                    p 命名空间是 Spring 的一个简化语法糖，并不是一个完整的 XML Schema（XSD）。它的功能是将 XML 中的属性语法（<property>）简化为属性式配置 -->
     <!--完成user对象创建
         bean标签
             id属性：唯一标识

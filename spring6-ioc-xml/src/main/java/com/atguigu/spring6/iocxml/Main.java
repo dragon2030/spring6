@@ -33,6 +33,11 @@ public class Main {
         //实验七：为集合类型属性赋值
         new com.atguigu.spring6.iocxml.ditest.TestDept();
         //实验七：为Map集合类型属性赋值 包含两种 其中一种是简写
+        //引用集合类型的bean  xmlns:util
+        //实验八：p命名空间
         new com.atguigu.spring6.iocxml.dimap.TestStu();
+
+        //实验九：引入外部属性文件
+        new com.atguigu.spring6.iocxml.jdbc.TestJdbc();
     }
 }

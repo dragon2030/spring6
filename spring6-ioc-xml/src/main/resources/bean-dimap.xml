@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--
         1 创建两个对象
@@ -31,7 +32,7 @@
                         <value>10010</value>
                     </key>
                     <ref bean="teacherone"></ref>
-                    <!--<value>"如果是普通值"</value>-->
+                    <!--<value>"如果是普通值 可以直接这种方式"</value>-->
                 </entry>
                 <entry value-ref ="teachertwo" key="10086"></entry >
             </map>
