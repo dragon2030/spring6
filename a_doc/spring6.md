@@ -1299,7 +1299,7 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 </bean>
 ```
 
-> 使用util:list、util:map标签必须引入相应的命名空间
+> 使用util:list、util:map标签必须**引入相应的命名空间**
 >
 > ```xml
 > <?xml version="1.0" encoding="UTF-8"?>
@@ -1340,6 +1340,10 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 
 
 #### 3.2.10、实验九：引入外部属性文件
+
+> 一个xml文件中会有很多个bean配置，修改维护很不方便，可以考虑特定的固定值放到一个外部文件中，然后引入外部文件然后进行注入，较为常见如数据库的密码等参数的维护
+>
+> ![引入外部属性文件](images/画图/07-引入外部属性文件.png)
 
 **①加入依赖**
 
