@@ -18,6 +18,7 @@ public class TestStu {
     }
     @Test
     public void testStu2() {
+        //p命名空间注入
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("bean-diref.xml");
         Student student = context.getBean("student", Student.class);
